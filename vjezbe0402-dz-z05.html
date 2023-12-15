@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validacija Registarske Oznake</title>
+</head>
+<body>
+
+  <h2>Validacija Registarske Oznake</h2>
+
+  <form id="validacijaForma">
+    <label for="registracija">Unesite registarsku oznaku (npr. ABC 123): </label>
+    <input type="text" id="registracija" name="registracija" required>
+    <button type="button" onclick="validirajRegistraciju()">Validiraj</button>
+  </form>
+
+  <script>
+    function validirajRegistraciju() {
+
+      var registracijaInput = document.getElementById("registracija");
+      var registracija = registracijaInput.value;
+
+
+      var regexBiH = /^[A-ZČĆŠĐŽ]{2}\s\d{3}\s\d{2}$/;
+
+
+      if (regexBiH.test(registracija)) {
+
+        alert("Registarska oznaka je ispravna: " + registracija);
+      } else {
+
+        alert("Neispravan format registarske oznake. Molimo unesite u formatu ABC 123.");
+      }
+    }
+  </script>
+
+</body>
+</html>
